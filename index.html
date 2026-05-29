@@ -1,1 +1,301 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>নলেজ বেস | সাহায্য কেন্দ্র</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --primary-color: #de5833; /* Namecheap Orange-Red vibe */
+            --secondary-color: #0b1a30; /* Deep Blue Header */
+            --text-color: #333333;
+            --light-bg: #f8fafc;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Hind Siliguri', sans-serif;
+            background-color: #ffffff;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: var(--secondary-color);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        nav .logo {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        nav .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+        }
+
+        /* Hero Section (Namecheap Style) */
+        .hero {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 60px 20px 80px 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 16px 25px;
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Main Content Container */
+        .main-container {
+            max-width: 1200px;
+            margin: -40px auto 60px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Category Cards Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* Popular Articles Section */
+        .popular-articles {
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .popular-articles h2 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .article-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .article-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .article-item {
+            background: #ffffff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .article-item:hover {
+            color: var(--primary-color);
+            background: #ffffff;
+            padding-left: 25px;
+            border-color: #cbd5e1;
+        }
+
+        .article-item::before {
+            content: "📄";
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #64748b;
+            font-size: 14px;
+            border-top: 1px solid var(--border-color);
+            background: var(--light-bg);
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">Knowledge<span>Base</span></a>
+        <ul>
+            <li><a href="#">হোম</a></li>
+            <li><a href="#">ডকুমেন্টেশন</a></li>
+            <li><a href="#">যোগাযোগ</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>আমরা কীভাবে আপনাকে সাহায্য করতে পারি?</h1>
+        <p>আপনার প্রয়োজনীয় গাইড, টিউটোরিয়াল এবং যেকোনো সমস্যার সমাধান এখানে খুঁজুন।</p>
+        <div class="search-container">
+            <input type="text" placeholder="কী খুঁজছেন? যেমন: ডোমেন, হোস্টিং, HTML সেটআপ...">
+        </div>
+    </section>
+
+    <main class="main-container">
+        
+        <div class="categories-grid">
+            <div class="card">
+                <span class="card-icon">🚀</span>
+                <h3>শুরু করা যাক (Getting Started)</h3>
+                <p>নতুনদের জন্য একদম শুরু থেকে গাইডলাইন এবং প্রাথমিক সেটআপ প্রসেস।</p>
+            </div>
+            
+            <div class="card">
+                <span class="card-icon">🌐</span>
+                <h3>ডোমেইন ও হোস্টিং</h3>
+                <p>ডোমেইন কানেক্ট করা, DNS কনফিগারেশন এবং সার্ভার ম্যানেজমেন্ট।</p>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">💻</span>
+                <h3>ওয়েব ডেভেলপমেন্ট</h3>
+                <p>HTML, CSS, এবং JavaScript সংক্রান্ত বিভিন্ন টিপস ও ট্রিকস।</p>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">🔒</span>
+                <h3>নিরাপত্তা ও SSL</h3>
+                <p>আপনার সাইটের সিকিউরিটি, SSL সার্টিফিকেট ইনস্টলেশন এবং ব্যাকআপ পদ্ধতি।</p>
+            </div>
+        </div>
+
+        <section class="popular-articles">
+            <h2>জনপ্রিয় আর্টিকেলসমূহ</h2>
+            <div class="article-list">
+                <a href="#" class="article-item">কীভাবে GitHub Pages-এ আপনার সাইট লাইভ করবেন?</a>
+                <a href="#" class="article-item">কাস্টম ডোমেইন সেটআপ করার সহজ নিয়মাবলী</a>
+                <a href="#" class="article-item">ক্লিন এবং মডার্ন UI ডিজাইন করার সেরা উপায়সমূহ</a>
+                <a href="#" class="article-item">সাইটের স্পিড এবং এসইও (SEO) অপটিমাইজেশন গাইড</a>
+                <a href="#" class="article-item">ফাইল ম্যানেজার এবং রিপোজিটরি ডিরেক্টরি পরিচিতি</a>
+                <a href="#" class="article-item">সমস্যার সমাধান: কেন সাইট লাইভ হচ্ছে না?</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 আপনার নলেজ বেস। সর্বস্বত্ব সংরক্ষিত। | কাস্টমাইজড বাই <a href="#">আপনার নাম</a></p>
+    </footer>
+
+</body>
+</html>
